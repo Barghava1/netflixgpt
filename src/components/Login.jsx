@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { banner } from '../utils/constants';
 const Login = () => {
 
   const [isSignin, setIssign] = useState(true);
@@ -31,7 +32,7 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user =userCredential.user
-          console.log("User Created:",user);
+       
           updateProfile(user, {
             displayName: nameValue, photoURL: "https://pbs.twimg.com/media/GCyjBf0XsAAAH3E.png",
           }).then(() => {
@@ -39,7 +40,7 @@ const Login = () => {
             const {uid,email,displayName,photoURL} = auth.currentUser;
             dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL:photoURL }))
             navigate("/browse");
-            
+
           }).catch((error) => {
             seterrormessage(error); 
           });
@@ -53,7 +54,7 @@ const Login = () => {
     } else {
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
-          console.log("User Signed In:", userCredential.user);
+       
           seterrormessage(""); 
           navigate("/browse");
         })
@@ -73,7 +74,7 @@ const Login = () => {
     <div >
           <Header/>
           <div className='absolute'>
-        <img src="https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg"
+        <img src={banner}
         alt="Netflix banner"/>
         </div>
         <form onSubmit={(e)=>e.preventDefault()} 
