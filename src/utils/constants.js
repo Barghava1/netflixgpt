@@ -10,3 +10,10 @@ export const API_options = {
   };
 
 export const IMG_URL="https://image.tmdb.org/t/p/w300"
+
+export const SUPPORTEDLANG=[
+  {identifier:"en",name:"English"},
+  {identifier:"telugu",name:"Telugu"},
+  {identifier:"spanish",name:"Spanish"},
+  {identifier:"hindi",name:"Hindi"},
+];
