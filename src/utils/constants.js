@@ -17,3 +17,5 @@ export const SUPPORTEDLANG=[
   {identifier:"spanish",name:"Spanish"},
   {identifier:"hindi",name:"Hindi"},
 ];
+ 
+ export const OPEN_AIKEY="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";
